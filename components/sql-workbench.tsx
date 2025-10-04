@@ -25,6 +25,7 @@ export function SqlWorkbench() {
   const [result, setResult] = useState<typeof mockUserQueryResult | null>(null)
 
   const handleRunQuery = async () => {
+    console.log('Button clicked!', { query, isRunning, hasRun })
     setIsRunning(true)
     setHasRun(false)
 
@@ -34,6 +35,7 @@ export function SqlWorkbench() {
     setResult(mockUserQueryResult)
     setIsRunning(false)
     setHasRun(true)
+    console.log('Query completed!', mockUserQueryResult)
   }
 
 
@@ -56,17 +58,17 @@ export function SqlWorkbench() {
               className="font-mono min-h-[200px] text-sm pr-16 pb-16"
               aria-label="SQL Query Input"
             />
-            <Button
+            <button
               onClick={handleRunQuery}
               disabled={isRunning || !query.trim()}
-              size="icon"
-              className="absolute bottom-3 right-3 h-12 w-12 rounded-full shadow-lg"
+              className="absolute bottom-3 right-3 h-12 w-12 rounded-full shadow-lg bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50"
               aria-label="Run Query"
               title="Run Query"
+              style={{ cursor: 'pointer', zIndex: 10 }}
             >
               {isRunning ? <Loader2Icon className="h-5 w-5 animate-spin" /> : <PlayIcon className="h-5 w-5" />}
               <span className="sr-only">Run Query</span>
-            </Button>
+            </button>
           </div>
 
           {hasRun && result && (

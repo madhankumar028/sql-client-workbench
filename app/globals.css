@@ -382,6 +382,34 @@ body {
   color: #6b7280;
 }
 
+/* Button states */
+button:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+button:not(:disabled):hover {
+  opacity: 0.9;
+}
+
+/* Animation for loading spinner */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
 /* Utility classes */
 .sr-only {
   position: absolute;
