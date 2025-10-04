@@ -440,3 +440,24 @@ button:not(:disabled):hover {
   border: 0;
 }
 
+/* Table borders */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid #e5e7eb;
+  padding: 0.75rem;
+}
+
+th {
+  background: #f9fafb;
+  font-weight: 600;
+  color: #374151;
+}
+
+tr {
+  border-bottom: 1px solid #e5e7eb;
+}
+
